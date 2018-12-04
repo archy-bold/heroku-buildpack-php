@@ -55,11 +55,17 @@ Please refer to the [README in `support/build/`](support/build/README.md) for in
 
 ## Simon's Additions
 
+There is already a machine for generating these builds, `wata-php-ext-builder`, but to do so again, you can run the following command. It's important you use the old stack.
+
+```
+heroku create --remote heroku-cedar-14 --stack cedar-14
+```
+
 On the dev machine, here's your commands to get everything set up.
 
 ```
 # create cedar-14 app
-heroku config:set WORKSPACE_DIR=/app/support/build AWS_ACCESS_KEY_ID=<ACCESS_KEY> AWS_SECRET_ACCESS_KEY=<SECRET> UPSTREAM_S3_BUCKET=lang-php S3_PREFIX=dist-cedar-14-stable/ S3_BUCKET=wata-build2 UPSTREAM_S3_PREFIX=dist-cedar-14-stable/ S3_REGION=s3 STACK=cedar-14 -a limitless-waters-28511
+heroku config:set WORKSPACE_DIR=/app/support/build AWS_ACCESS_KEY_ID=<ACCESS_KEY> AWS_SECRET_ACCESS_KEY=<SECRET> UPSTREAM_S3_BUCKET=lang-php S3_PREFIX=dist-cedar-14-stable/ S3_BUCKET=wata-build2 UPSTREAM_S3_PREFIX=dist-cedar-14-stable/ S3_REGION=s3 STACK=cedar-14 -a wata-php-ext-builder
 heroku run bash
 ```
 
