@@ -53,3 +53,19 @@ Please submit all pull requests against `develop` as the base branch.
 
 Please refer to the [README in `support/build/`](support/build/README.md) for instructions.
 
+## Simon's Additions
+
+On the dev machine, here's your commands to get everything set up.
+
+```
+# create cedar-14 app
+heroku config:set WORKSPACE_DIR=/app/support/build AWS_ACCESS_KEY_ID=<ACCESS_KEY> AWS_SECRET_ACCESS_KEY=<SECRET> UPSTREAM_S3_BUCKET=lang-php S3_PREFIX=dist-cedar-14-stable/ S3_BUCKET=wata-build2 UPSTREAM_S3_PREFIX=dist-cedar-14-stable/ S3_REGION=s3 STACK=cedar-14 -a limitless-waters-28511
+heroku run bash
+```
+
+Here are the commands to build everything from the server
+
+```
+support/build/_util/deploy.sh --publish extensions/no-debug-non-zts-20160303/protobuf-3.6.1 --overwrite
+support/build/_util/deploy.sh --publish extensions/no-debug-non-zts-20160303/grpc-1.15.0 --overwrite
+```
